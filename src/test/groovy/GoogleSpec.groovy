@@ -18,10 +18,10 @@ class GoogleSpec extends GebReportingSpec {
         then:
         Thread.sleep(1000)
 		def title = browser.page.title
-		assert title.endsWith("Google Search") || title.endsWith("Cãutare Google")
+		assert title.endsWith("Google Search")
 
 		and:
-		assert $('div#ires ol li')[0].find('a').text() == searchTerm
+		assert $('div#ires ol li')[0].find('a').text().startsWith(searchTerm)
 	}
 
 }
